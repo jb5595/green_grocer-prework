@@ -34,7 +34,7 @@ def apply_coupons(cart, coupons)
         # binding.pry
   
         # binding.pry
-      until coupon[:num] == 0 
+      unti
         # binding.pry
         coupon_cart["#{item} W/COUPON"][:count] += 1
         coupon[:num] -= 1

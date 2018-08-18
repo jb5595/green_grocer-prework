@@ -23,15 +23,17 @@ def apply_coupons(cart, coupons)
   coupons.each do |coupon|
    item = coupon[:item]
     if cart.has_key?(item)
-                                 
-
+      if cart["#{item} W/COUPON"]
+      coupon_cart["#{item} W/COUPON"] += l
+    else 
       coupon_cart["#{item} W/COUPON"] = {}
       coupon_cart["#{item} W/COUPON"][:price] = coupon[:cost]
       coupon_cart["#{item} W/COUPON"][:clearance] = cart[item][:clearance]
       coupon_cart["#{item} W/COUPON"][:count] = 0
+    end 
         # binding.pry
-        
-        
+  
+        # binding.pry
       until coupon[:num] == 0 
         # binding.pry
         coupon_cart["#{item} W/COUPON"][:count] += 1
@@ -39,7 +41,7 @@ def apply_coupons(cart, coupons)
       end 
     end 
   end 
-  
+  binding.pry
   coupon_cart 
 end
 
